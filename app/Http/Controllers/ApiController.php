@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-abstract class ApiControllers 
+abstract class ApiController 
 {
 
     protected $model;
@@ -17,9 +17,12 @@ abstract class ApiControllers
         return $this->sendResponse($request, 'OK', 200);
     }
 
-    public function detail(int $objectId)
+    public function detail(int $entityId, Request $request)
     {
-
+        $entity = $this->model->find($entityId)->first();
+        if (!$entity) {
+            return $this->sendError('Not found', 404);
+        }
     }
 
     public function update(int $objectId) 
