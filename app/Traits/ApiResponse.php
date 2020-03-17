@@ -30,4 +30,13 @@ trait ApiResponse
     {
         return Response::json(self::makeError($error, $data), $code);
     }
+
+    public function makeResponse($message, $data)
+    {
+        return [
+            'success' => true,
+            'data' => $data,
+            'message' => $message,
+        ];
+    }
 }

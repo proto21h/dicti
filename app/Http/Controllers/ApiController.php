@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
 
-abstract class ApiController 
+class ApiController extends Controller
 {
 
     protected $model;
