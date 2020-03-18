@@ -15,7 +15,10 @@ class ApiController extends Controller
 
         $result = $this->model->limit($limit)->offset($offset)->get();
 
-        return $this->sendResponse($request, 'OK', 200);
+        //$result = $this->model->
+        //dd($result);
+
+        return $this->sendResponse($result, 'OK', 200);
     }
 
     public function detail(int $entityId, Request $request)

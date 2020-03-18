@@ -8,12 +8,18 @@ use App\Faq;
 class FaqController extends ApiController
 {
     //
-    public function __construct(Faq $model, FaqRequest $request) 
+    public function __construct(Faq $model) 
     {
-        //$model::all();
-        //dd($model);
-        $this->model = $model;
-        $this->request = $request;
-        
+        $this->model = $model;   
     }    
+
+    public function createFaq(FaqRequest $request)
+    {
+        return $this->create($request);
+    }
+
+    public function updateFaq(int $entityId, FaqRequest $request) 
+    {
+        return parent::update($entityId, $request);
+    }
 }
