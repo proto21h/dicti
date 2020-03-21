@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-
+use Carbon\Carbon;
 class ApiController extends Controller
 {
 
@@ -15,8 +15,8 @@ class ApiController extends Controller
 
         $result = $this->model->limit($limit)->offset($offset)->get();
 
-        //$result = $this->model->
-        //dd($result);
+        //dd(date('M j, Y',$this->model->get_attribute('created_at')));
+        //dd($result->find(2)->created_at->timestamp);  // date in millisec
 
         return $this->sendResponse($result, 'OK', 200);
     }
